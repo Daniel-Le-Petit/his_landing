@@ -1,0 +1,111 @@
+.his-upcoming-features {
+  margin-bottom: 3rem;
+}
+
+.his-upcoming-card {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.his-upcoming-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.his-upcoming-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4D148C;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.his-upcoming-title svg {
+  width: 20px;
+  height: 20px;
+  color: #4D148C;
+}
+
+.his-upcoming-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FF6600;
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 0;
+}
+
+.his-upcoming-description {
+  font-size: 0.95rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.his-upcoming-board-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4D148C;
+  margin: 1rem 0 0.5rem 0;
+  padding-left: 0;
+}
+
+.his-upcoming-board-title:first-child {
+  margin-top: 0;
+}
+
+.his-upcoming-description ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding: 0;
+  list-style: disc;
+}
+
+.his-upcoming-description li {
+  margin: 0.25rem 0;
+  color: #cccccc;
+}
+
+.his-progress-section {
+  margin-top: 1.5rem;
+}
+
+.his-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.his-progress-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4D148C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.his-progress-percentage {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #FF6600;
+}
+
+.his-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #333333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.his-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF6600 0%, #FF8533 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}

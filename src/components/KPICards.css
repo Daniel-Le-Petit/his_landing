@@ -1,0 +1,65 @@
+.his-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.his-kpi-card {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.his-kpi-card:hover {
+  background: #2a2a2a;
+  border-color: #444444;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.his-kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.his-kpi-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4D148C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.his-kpi-trend {
+  display: flex;
+  align-items: center;
+}
+
+.his-kpi-trend svg {
+  width: 20px;
+  height: 20px;
+}
+
+.his-kpi-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .his-kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .his-kpi-value {
+    font-size: 2rem;
+  }
+}

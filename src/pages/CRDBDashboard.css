@@ -1,0 +1,219 @@
+.crdb-dashboard {
+  min-height: 100vh;
+  background: #000000;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.crdb-main-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* KPI Cards Section */
+.crdb-kpi-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.crdb-kpi-card {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.crdb-kpi-card:hover {
+  background: #2a2a2a;
+  border-color: #444444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.crdb-kpi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.crdb-kpi-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4D148C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.crdb-kpi-icon {
+  color: #FF6600;
+  font-size: 1.2rem;
+}
+
+.crdb-kpi-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.crdb-kpi-chart {
+  font-size: 1rem;
+  color: #FF6600;
+}
+
+/* Tables Grid */
+.crdb-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.crdb-table-section {
+  background: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.crdb-table-section-full {
+  grid-column: 1 / -1;
+  min-height: 350px;
+}
+
+.crdb-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #333333;
+}
+
+.crdb-table-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4D148C;
+  margin: 0;
+}
+
+.crdb-table-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crdb-sort-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.crdb-search-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  width: 200px;
+}
+
+.crdb-filter-btn {
+  background: transparent;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #cccccc;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.crdb-filter-btn:hover {
+  background: #2a2a2a;
+  border-color: #FF6600;
+  color: #FF6600;
+}
+
+.crdb-table {
+  overflow-x: auto;
+}
+
+.crdb-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crdb-table thead {
+  background: #2a2a2a;
+}
+
+.crdb-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4D148C;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #333333;
+}
+
+.crdb-table td {
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  border-bottom: 1px solid #333333;
+}
+
+.crdb-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+@media (max-width: 1200px) {
+  .crdb-tables-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .crdb-table-section-full {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .crdb-kpi-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .crdb-main-content {
+    padding: 1rem;
+  }
+  
+  .crdb-table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .crdb-table-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
