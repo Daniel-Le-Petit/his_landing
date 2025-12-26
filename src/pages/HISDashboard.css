@@ -63,12 +63,23 @@
   color: #4D148C;
 }
 
+.his-description-wrapper {
+  width: 100%;
+  margin-bottom: 2.5rem;
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .his-description {
   font-size: 1.1rem;
   color: #cccccc;
-  margin-bottom: 2.5rem;
+  margin: 0;
   line-height: 1.6;
-  white-space: nowrap;
+  border: none;
+  padding: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .his-action-buttons {

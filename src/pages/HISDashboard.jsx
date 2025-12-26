@@ -39,9 +39,11 @@ function HISDashboard() {
         <div className="his-hero-section">
           <div className="his-section-label">REAL-TIME HUB DASHBOARD</div>
           <h1 className="his-main-title">Hub Information System</h1>
-          <p className="his-description">
-            A real-time operational view of SPSS and EBSS sort activities, delivering actionable insights on physical positions, split performance, and processing efficiency at the CDG Hub
-          </p>
+          <div className="his-description-wrapper">
+            <p className="his-description">
+              A real-time operational view of SPSS and EBSS sort activities, delivering actionable insights on physical positions, split performance, and processing efficiency at the CDG Hub
+            </p>
+          </div>
           
           <KPICards />
         </div>
