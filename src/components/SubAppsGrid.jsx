@@ -47,7 +47,7 @@ function SubAppsGrid({ simplifiedMode = false }) {
   const subApps = [
     {
       id: 'spss',
-      title: 'HIS for SPSS',
+      title: 'HIS SPSS',
       icon: <IconDocument />,
       description: '',
       image: '/images/spss-dashboard.png',
@@ -97,11 +97,14 @@ function SubAppsGrid({ simplifiedMode = false }) {
       id: 'ofd',
       title: 'HIS OFD',
       icon: <IconPlane />,
-      description: 'Outbound Flight Delays. Real-time communication and anticipation of linehaul bottlenecks.',
+      description: '',
+      image: '/images/msp-dashboard.png',
       features: [
-        'Remaining pieces processing time',
-        'Vessel detail pop-ups',
-        'NOC approval workflow'
+        'Real-time communication and anticipation of linehaul bottlenecks for outbound flight delays',
+        'Remaining pieces processing time tracking and vessel detail pop-ups',
+        'NOC approval workflow for delay management and decision-making',
+        'Visibility on flight delay impacts and volume processed indicators',
+        'Control Room broadcast of operational comments and delay instructions'
       ],
       category: 'MONITORING',
       status: 'online'
@@ -110,11 +113,14 @@ function SubAppsGrid({ simplifiedMode = false }) {
       id: 'crdb',
       title: 'Control Room Boxes (CRDB)',
       icon: <IconGrid />,
-      description: 'Full-spectrum visibility for the Box Outfeed area through 4 specialized data boards.',
+      description: '',
+      image: '/images/crdb-dashboard.png',
       features: [
-        'Overview (Conveyables, Bags, Non-Conv)',
-        'Run Out Transit details',
-        'Intermediate Destination research'
+        'Full-spectrum visibility for the Box Outfeed area through 4 specialized data boards',
+        'Overview Board displaying building names, conveyable packages, bags, non-conveyable packages, total transit, and processed pieces',
+        'Run Out Transit Board with run-out numbers, package counts, total transit, pieces processed per hour, and total processed pieces',
+        'Intermediate Destination Transit Board showing intermediate area details, total transit, and total processed with search functionality',
+        'Final Destination Transit Board displaying chutes, splits, package counts, total transit, pieces processed per hour, and total processed with chute search'
       ],
       category: 'CONTROL',
       status: 'online'
@@ -123,11 +129,14 @@ function SubAppsGrid({ simplifiedMode = false }) {
       id: 'crdd',
       title: 'Control Room Docs (CRDD)',
       icon: <IconChart />,
-      description: 'In-depth real-time analytics for the Document Scan and SPSS area.',
+      description: '',
+      image: '/images/crdd-dashboard.png',
       features: [
-        'Total Transit vs Processed scan area',
-        'Percentage Occupancy calculations',
-        'Detail per Zone (scanned pieces/hour)'
+        'In-depth real-time analytics for the Document Scan and SPSS area with comprehensive data visualization',
+        'Total Transit vs Processed scan area metrics with percentage occupancy calculations',
+        'Detail per Zone Board showing scanned pieces per hour and zone-specific performance indicators',
+        'Real-time visibility on document processing efficiency and chute utilization across all zones',
+        'Advanced search functionality and filtering capabilities for detailed operational analysis'
       ],
       category: 'CONTROL',
       status: 'online'
@@ -138,22 +147,17 @@ function SubAppsGrid({ simplifiedMode = false }) {
     <section className="his-sub-apps-section">
       <div className="his-sub-apps-grid">
         {subApps.map((app) => (
-          <div key={app.id} className={`his-sub-app-card ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' ? 'his-sub-app-card-spss' : ''}`}>
+          <div key={app.id} className={`his-sub-app-card ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' || app.id === 'ofd' || app.id === 'crdb' || app.id === 'crdd' ? 'his-sub-app-card-spss' : ''}`}>
             <div className="his-sub-app-card-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flex: 1 }}>
                 <div className="his-sub-app-icon">{app.icon}</div>
-                {(app.id === 'spss' || app.id === 'ebss' || app.id === 'msp') && <h3 className="his-sub-app-title his-sub-app-title-inline">{app.title}</h3>}
+                <h3 className="his-sub-app-title his-sub-app-title-inline">{app.title}</h3>
               </div>
-              <span className={`his-status-badge his-status-${app.status}`}>
-                {app.status.toUpperCase()}
-              </span>
             </div>
-            
-            {app.id !== 'spss' && app.id !== 'ebss' && app.id !== 'msp' && <h3 className="his-sub-app-title">{app.title}</h3>}
             {app.description && <p className="his-sub-app-description">{app.description}</p>}
             
             {app.image && (
-              <div className={`his-sub-app-image ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' ? 'his-sub-app-image-spss' : ''}`}>
+              <div className={`his-sub-app-image ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' || app.id === 'ofd' || app.id === 'crdb' || app.id === 'crdd' ? 'his-sub-app-image-spss' : ''}`}>
                 <img src={app.image} alt={`${app.title} dashboard`} />
               </div>
             )}

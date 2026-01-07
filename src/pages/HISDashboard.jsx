@@ -8,7 +8,7 @@ import HISFooter from '../components/HISFooter'
 
 function HISDashboard() {
   const [currentTime, setCurrentTime] = useState(new Date())
-  const [simplifiedMode, setSimplifiedMode] = useState(false)
+  const [simplifiedMode, setSimplifiedMode] = useState(true)
 
   useEffect(() => {
     const timer = setInterval(() => {

@@ -58,7 +58,6 @@ function HISHeader({ currentTime, simplifiedMode, heroContent }) {
       <div className="his-header-right">
         {simplifiedMode && (
           <div className="his-environment-selector">
-            <label className="his-environment-label">Environment:</label>
             <select 
               value={environment}
               onChange={(e) => setEnvironment(e.target.value)}
