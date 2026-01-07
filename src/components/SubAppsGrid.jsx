@@ -43,11 +43,11 @@ const IconChart = () => (
   </svg>
 )
 
-function SubAppsGrid() {
+function SubAppsGrid({ simplifiedMode = false }) {
   const subApps = [
     {
       id: 'spss',
-      title: 'HIS SPSS',
+      title: 'HIS for SPSS',
       icon: <IconDocument />,
       description: '',
       image: '/images/spss-dashboard.png',
@@ -79,7 +79,7 @@ function SubAppsGrid() {
     },
     {
       id: 'msp',
-      title: 'HIS Monitor for Sensitive Packages (MSP)',
+      title: 'HIS MSP',
       icon: <IconLock />,
       description: '',
       image: '/images/msp-dashboard.png',
@@ -95,16 +95,13 @@ function SubAppsGrid() {
     },
     {
       id: 'ofd',
-      title: 'HIS Outbound Flight Delays (OFD)',
+      title: 'HIS OFD',
       icon: <IconPlane />,
-      description: '',
-      image: '/images/msp-dashboard.png',
+      description: 'Outbound Flight Delays. Real-time communication and anticipation of linehaul bottlenecks.',
       features: [
-        'Real-time monitoring and tracking of sensitive products throughout hub operations',
-        'Automatic identification of AWBs with Special Handling',
-        'Manual AWB entry and search functionality with real-time information table display',
-        'Automated data refresh every minute with comprehensive filtering capabilities',
-        'Excel export functionality for analysis and record-keeping'
+        'Remaining pieces processing time',
+        'Vessel detail pop-ups',
+        'NOC approval workflow'
       ],
       category: 'MONITORING',
       status: 'online'
@@ -113,14 +110,11 @@ function SubAppsGrid() {
       id: 'crdb',
       title: 'Control Room Boxes (CRDB)',
       icon: <IconGrid />,
-      description: '',
-      image: '/images/crdb-dashboard.png',
+      description: 'Full-spectrum visibility for the Box Outfeed area through 4 specialized data boards.',
       features: [
-        'Overview Board displaying building names, conveyable packages, bags, non-conveyable packages, total transit, and processed pieces',
-        'Run Out Transit Board with run-out numbers, package counts, total transit, pieces processed per hour, and total processed pieces',
-        'Intermediate Destination Transit Board showing intermediate area details, total transit, and total processed with search functionality',
-        'Final Destination Transit Board displaying chutes, splits, package counts, total transit, pieces processed per hour, and total processed with chute search',
-        'Real-time visibility and comprehensive data analytics for control room operations across all Box Outfeed areas'
+        'Overview (Conveyables, Bags, Non-Conv)',
+        'Run Out Transit details',
+        'Intermediate Destination research'
       ],
       category: 'CONTROL',
       status: 'online'
@@ -129,14 +123,11 @@ function SubAppsGrid() {
       id: 'crdd',
       title: 'Control Room Docs (CRDD)',
       icon: <IconChart />,
-      description: '',
-      image: '/images/crdd-dashboard.png',
+      description: 'In-depth real-time analytics for the Document Scan and SPSS area.',
       features: [
-        'Overview Board displaying Doc Infeed scan area with Total Transit (documents scanned at Infeed destined for SPSS) and Total Processed (documents scanned at SPSS)',
-        'Detail per Zone Board showing zones (SPSS position groups) with Total Transit, Current pieces/hour (last 3 minutes × 20), Total Processed, and Sort Pref functionality',
-        'Detail per Split Board with search functionality for chutes (comma-separated queries like S101, S102) displaying chutes, splits, and processing metrics',
-        'Real-time monitoring of Total Transit (aggregate documents scanned at Infeed transiting to SPSS) and Current pieces/hour (last 3-10 minutes × 20) per split',
-        'Comprehensive analytics with Sort Pref options accessible via column arrows, tracking document processing across zones and splits in the SPSS area'
+        'Total Transit vs Processed scan area',
+        'Percentage Occupancy calculations',
+        'Detail per Zone (scanned pieces/hour)'
       ],
       category: 'CONTROL',
       status: 'online'
@@ -147,22 +138,22 @@ function SubAppsGrid() {
     <section className="his-sub-apps-section">
       <div className="his-sub-apps-grid">
         {subApps.map((app) => (
-          <div key={app.id} className={`his-sub-app-card ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' || app.id === 'ofd' || app.id === 'crdb' || app.id === 'crdd' ? 'his-sub-app-card-spss' : ''} ${app.id === 'crdb' ? 'crdb-card' : ''}`}>
+          <div key={app.id} className={`his-sub-app-card ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' ? 'his-sub-app-card-spss' : ''}`}>
             <div className="his-sub-app-card-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flex: 1 }}>
                 <div className="his-sub-app-icon">{app.icon}</div>
-                {(app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' || app.id === 'ofd' || app.id === 'crdb' || app.id === 'crdd') && <h3 className="his-sub-app-title his-sub-app-title-inline">{app.title}</h3>}
+                {(app.id === 'spss' || app.id === 'ebss' || app.id === 'msp') && <h3 className="his-sub-app-title his-sub-app-title-inline">{app.title}</h3>}
               </div>
               <span className={`his-status-badge his-status-${app.status}`}>
                 {app.status.toUpperCase()}
               </span>
             </div>
             
-            {app.id !== 'spss' && app.id !== 'ebss' && app.id !== 'msp' && app.id !== 'ofd' && app.id !== 'crdb' && app.id !== 'crdd' && <h3 className="his-sub-app-title">{app.title}</h3>}
+            {app.id !== 'spss' && app.id !== 'ebss' && app.id !== 'msp' && <h3 className="his-sub-app-title">{app.title}</h3>}
             {app.description && <p className="his-sub-app-description">{app.description}</p>}
             
             {app.image && (
-              <div className={`his-sub-app-image ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' || app.id === 'ofd' || app.id === 'crdb' || app.id === 'crdd' ? 'his-sub-app-image-spss' : ''}`}>
+              <div className={`his-sub-app-image ${app.id === 'spss' || app.id === 'ebss' || app.id === 'msp' ? 'his-sub-app-image-spss' : ''}`}>
                 <img src={app.image} alt={`${app.title} dashboard`} />
               </div>
             )}
@@ -174,7 +165,7 @@ function SubAppsGrid() {
             </ul>
             
             <div className="his-sub-app-footer">
-              <span className="his-sub-app-category">{app.category}</span>
+              {!simplifiedMode && <span className="his-sub-app-category">{app.category}</span>}
               <a href={`#${app.id}`} className="his-access-link">
                 Access App <span>→</span>
               </a>

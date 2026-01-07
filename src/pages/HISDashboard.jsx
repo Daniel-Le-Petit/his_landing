@@ -8,6 +8,7 @@ import HISFooter from '../components/HISFooter'
 
 function HISDashboard() {
   const [currentTime, setCurrentTime] = useState(new Date())
+  const [simplifiedMode, setSimplifiedMode] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,33 +27,40 @@ function HISDashboard() {
     })
   }
 
+  const heroContent = {
+    title: 'REAL-TIME HUB DASHBOARD',
+    description: 'A real-time operational view of SPSS and EBSS sort activities, delivering actionable insights on physical positions, split performance, and processing efficiency at the CDG Hub'
+  }
+
   return (
-    <div className="his-dashboard">
-      <div className="his-sidebar-gradient">
-        <div className="his-sidebar-text">
-          <span className="his-first-letter">H</span>ub <span className="his-first-letter">I</span>nformation <span className="his-first-letter">S</span>ystem
-        </div>
-      </div>
-      <HISHeader currentTime={formatTime(currentTime)} />
+    <div className={`his-dashboard ${simplifiedMode ? 'his-simplified-mode' : ''}`}>
+      <HISHeader 
+        currentTime={formatTime(currentTime)} 
+        simplifiedMode={simplifiedMode}
+        heroContent={simplifiedMode ? heroContent : null}
+      />
       
       <main className="his-main-content">
-        <div className="his-hero-section">
-          <div className="his-section-label">REAL-TIME HUB DASHBOARD</div>
-          <h1 className="his-main-title">Hub Information System</h1>
-          <div className="his-description-wrapper">
+        {!simplifiedMode && (
+          <div className="his-hero-section">
+            <div className="his-section-label">REAL-TIME HUB DASHBOARD</div>
+            <h1 className="his-main-title">Hub Information System</h1>
             <p className="his-description">
               A real-time operational view of SPSS and EBSS sort activities, delivering actionable insights on physical positions, split performance, and processing efficiency at the CDG Hub
             </p>
+            
+            <KPICards />
           </div>
-          
-          <KPICards />
-        </div>
+        )}
 
-        <SubAppsGrid />
+        <SubAppsGrid simplifiedMode={simplifiedMode} />
 
-        <UpcomingFeatures />
+        {!simplifiedMode && <UpcomingFeatures />}
 
-        <HISFooter />
+        <HISFooter 
+          simplifiedMode={simplifiedMode}
+          onToggleMode={() => setSimplifiedMode(!simplifiedMode)}
+        />
       </main>
     </div>
   )

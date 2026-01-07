@@ -1,46 +1,32 @@
 .his-dashboard {
   min-height: 100vh;
-  background: #000000;
-  color: #ffffff;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  color: #e0e0e0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  position: relative;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.his-sidebar-gradient {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 80px;
-  height: 100vh;
-  background: linear-gradient(180deg, #FF6600 0%, #4D148C 100%);
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.his-dashboard.his-simplified-mode {
+  background: #ffffff;
+  color: #333333;
 }
 
-.his-sidebar-text {
-  writing-mode: vertical-lr;
-  text-orientation: mixed;
-  transform: rotate(180deg);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.2em;
-  text-align: center;
+.his-dashboard.his-simplified-mode .his-section-label {
+  color: #FF6600;
 }
 
-.his-first-letter {
-  color: #ffffff;
-  font-weight: 900;
-  font-size: 1.2em;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.his-dashboard.his-simplified-mode .his-main-title {
+  color: #4D148C;
+}
+
+.his-dashboard.his-simplified-mode .his-description {
+  color: #666666;
 }
 
 .his-main-content {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem 2rem 2rem 6rem;
+  padding: 2rem;
 }
 
 .his-hero-section {
@@ -50,7 +36,7 @@
 .his-section-label {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #FF6600;
+  color: #7c3aed;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
@@ -60,26 +46,15 @@
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #4D148C;
-}
-
-.his-description-wrapper {
-  width: 100%;
-  margin-bottom: 2.5rem;
-  border: none;
-  padding: 0;
-  box-sizing: border-box;
+  color: #FF6600;
 }
 
 .his-description {
   font-size: 1.1rem;
-  color: #cccccc;
-  margin: 0;
+  color: #b0b0b0;
+  margin-bottom: 2.5rem;
   line-height: 1.6;
-  border: none;
-  padding: 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  max-width: 900px;
 }
 
 .his-action-buttons {

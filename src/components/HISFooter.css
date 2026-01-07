@@ -3,8 +3,9 @@
   grid-template-columns: 1fr 1fr auto;
   gap: 3rem;
   padding: 2rem 0;
-  border-top: 1px solid #333333;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   align-items: start;
+  position: relative;
 }
 
 .his-footer-section {
@@ -16,7 +17,7 @@
 .his-footer-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #4D148C;
+  color: #a0a0a0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0;
@@ -30,19 +31,19 @@
 
 .his-footer-badge {
   padding: 0.5rem 1rem;
-  background: #1a1a1a;
-  border: 1px solid #333333;
+  background: rgba(26, 31, 58, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #cccccc;
+  color: #b0b0b0;
   transition: all 0.3s ease;
 }
 
 .his-footer-badge-active {
-  background: rgba(255, 102, 0, 0.1);
-  border-color: rgba(255, 102, 0, 0.5);
-  color: #FF6600;
+  background: rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #8b4ff0;
 }
 
 .his-footer-list {
@@ -56,7 +57,7 @@
 
 .his-footer-list li {
   font-size: 0.9rem;
-  color: #cccccc;
+  color: #b0b0b0;
   padding-left: 1.5rem;
   position: relative;
   line-height: 1.6;
@@ -66,7 +67,7 @@
   content: '•';
   position: absolute;
   left: 0;
-  color: #FF6600;
+  color: #7c3aed;
   font-weight: bold;
 }
 
@@ -82,18 +83,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
-  border: 1px solid #333333;
+  background: rgba(26, 31, 58, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  color: #cccccc;
+  color: #a0a0a0;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .his-footer-icon-btn:hover {
-  background: #2a2a2a;
-  border-color: rgba(255, 102, 0, 0.5);
-  color: #FF6600;
+  background: rgba(26, 31, 58, 0.8);
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #8b4ff0;
 }
 
 .his-footer-icon-btn svg {
@@ -109,6 +110,85 @@
   
   .his-footer-actions {
     justify-content: flex-start;
+  }
+}
+
+.his-footer-toggle {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.his-footer-toggle .his-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.his-footer-toggle .his-toggle-text {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.his-footer-toggle .his-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.his-footer-toggle .his-toggle-slider {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background-color: #333333;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.his-footer-toggle .his-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.his-footer-toggle .his-toggle-input:checked + .his-toggle-slider {
+  background-color: #FF6600;
+}
+
+.his-footer-toggle .his-toggle-input:checked + .his-toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.his-dashboard.his-simplified-mode .his-footer-toggle .his-toggle-text {
+  color: #666666;
+}
+
+@media (max-width: 1024px) {
+  .his-footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .his-footer-actions {
+    justify-content: flex-start;
+  }
+  
+  .his-footer-toggle {
+    position: static;
+    margin-top: 1rem;
   }
 }
 

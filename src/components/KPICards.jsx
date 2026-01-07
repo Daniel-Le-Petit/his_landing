@@ -1,13 +1,5 @@
 import './KPICards.css'
 
-const IconTransit = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-    <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="2"/>
-    <path d="M6 10L9 7L13 10L9 13L6 10Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-    <path d="M10 3V7M10 13V17M3 10H7M13 10H17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-)
-
 function KPICards() {
   const kpis = [
     {
@@ -20,8 +12,7 @@ function KPICards() {
       title: 'TOTAL TRANSIT',
       value: '42.800',
       trend: 'up',
-      color: '#10b981',
-      icon: <IconTransit />
+      color: '#10b981'
     },
     {
       title: 'PROCESSED PIECES',
@@ -69,7 +60,7 @@ function KPICards() {
           <div className="his-kpi-header">
             <h3 className="his-kpi-title">{kpi.title}</h3>
             <div className="his-kpi-trend" style={{ color: kpi.color }}>
-              {kpi.icon || getTrendIcon(kpi.trend)}
+              {getTrendIcon(kpi.trend)}
             </div>
           </div>
           <div className="his-kpi-value">{kpi.value}</div>

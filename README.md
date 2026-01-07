@@ -35,10 +35,10 @@ npm run preview
 - Real-time hub dashboard
 - KPI monitoring (Total Transit, Processed Pieces, Sort Delays, Active Chutes)
 - Operational Sub-Apps:
-  - HIS SPSS
-  - HIS Outfeed
-  - HIS Monitor for Sensitive Packages (MSP)
-  - HIS Outbound Flight Delays (OFD)
+  - HIS for SPSS
+  - HIS for EBSS
+  - HIS MSP
+  - HIS OFD
   - Control Room Boxes (CRDB)
   - Control Room Docs (CRDD)
 - Data source integrations (HORUS, FDS, TSP, Hub Stack)

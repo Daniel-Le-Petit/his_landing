@@ -3,14 +3,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: #000000;
-  border-bottom: 1px solid #333333;
+  background: rgba(10, 14, 39, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin-left: 80px;
+  transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-header,
+.his-header.his-header-simplified {
+  background: linear-gradient(135deg, #4D148C 0%, #FF6600 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 2rem;
 }
 
 .his-header-left {
@@ -24,18 +31,27 @@
   gap: 1rem;
 }
 
-.his-logo-icon {
-  width: 120px;
-  height: 32px;
+.his-fedex-logo {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0;
 }
 
-.his-logo-icon svg {
-  width: 100%;
-  height: 100%;
+.his-fedex-logo svg {
+  width: 120px;
+  height: 32px;
+}
+
+.his-logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff;
 }
 
 .his-logo-text {
@@ -46,13 +62,23 @@
 .his-logo-title {
   font-size: 1.25rem;
   font-weight: 700;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-logo-title {
   color: #4D148C;
 }
 
 .his-logo-subtitle {
   font-size: 0.75rem;
-  color: #cccccc;
+  color: #a0a0a0;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-logo-subtitle {
+  color: #666666;
 }
 
 .his-header-center {
@@ -70,29 +96,44 @@
 .his-search-icon {
   position: absolute;
   left: 1rem;
-  color: #888888;
+  color: #6b7280;
   pointer-events: none;
 }
 
 .his-search-input {
   width: 100%;
   padding: 0.75rem 1rem 0.75rem 3rem;
-  background: #1a1a1a;
-  border: 1px solid #333333;
+  background: rgba(26, 31, 58, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  color: #ffffff;
+  color: #e0e0e0;
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
 .his-search-input::placeholder {
-  color: #888888;
+  color: #6b7280;
 }
 
 .his-search-input:focus {
   outline: none;
+  border-color: #7c3aed;
+  background: rgba(26, 31, 58, 1);
+}
+
+.his-dashboard.his-simplified-mode .his-search-input {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  color: #333333;
+}
+
+.his-dashboard.his-simplified-mode .his-search-input::placeholder {
+  color: #999999;
+}
+
+.his-dashboard.his-simplified-mode .his-search-input:focus {
   border-color: #FF6600;
-  background: #2a2a2a;
+  background: #ffffff;
 }
 
 .his-header-right {
@@ -104,21 +145,31 @@
 .his-time {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #e0e0e0;
   font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-time {
+  color: #333333;
 }
 
 .his-location {
   font-size: 0.9rem;
-  color: #cccccc;
+  color: #a0a0a0;
   font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-location {
+  color: #666666;
 }
 
 .his-icon-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #cccccc;
+  color: #a0a0a0;
   padding: 0.5rem;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -128,8 +179,17 @@
 }
 
 .his-icon-btn:hover {
-  background: #2a2a2a;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.his-dashboard.his-simplified-mode .his-icon-btn {
+  color: #666666;
+}
+
+.his-dashboard.his-simplified-mode .his-icon-btn:hover {
+  background: #f0f0f0;
+  color: #333333;
 }
 
 .his-profile-btn {
@@ -140,13 +200,170 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   font-weight: 600;
   font-size: 0.9rem;
+}
+
+.his-mode-toggle {
+  margin-right: 1rem;
+}
+
+.his-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.his-toggle-text {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.his-dashboard.his-simplified-mode .his-toggle-text,
+.his-header.his-header-simplified .his-toggle-text {
+  color: #ffffff;
+}
+
+.his-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.his-toggle-slider {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  background-color: #333333;
+  border-radius: 24px;
+  transition: background-color 0.3s ease;
+}
+
+.his-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.his-toggle-input:checked + .his-toggle-slider {
+  background-color: #FF6600;
+}
+
+.his-toggle-input:checked + .his-toggle-slider::before {
+  transform: translateX(20px);
+}
+
+/* Header Center Content for Simplified Mode */
+.his-header-center-simplified {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem;
+  min-width: 0;
+}
+
+.his-hero-content-in-header {
+  text-align: center;
+  color: #ffffff;
+}
+
+.his-main-title-in-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.his-description-in-header {
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  opacity: 0.95;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Environment Selector */
+.his-environment-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.his-environment-label {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.his-environment-select {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.his-environment-select:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.his-environment-select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.his-environment-select option {
+  background: #4D148C;
+  color: #ffffff;
+}
+
+/* Simplified Mode Header Text Colors */
+.his-header.his-header-simplified .his-logo-title {
+  color: #ffffff;
+}
+
+.his-header.his-header-simplified .his-time {
+  color: #ffffff;
+}
+
+.his-header.his-header-simplified .his-location {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.his-header.his-header-simplified .his-icon-btn {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.his-header.his-header-simplified .his-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
 @media (max-width: 1024px) {
