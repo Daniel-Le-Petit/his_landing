@@ -69,7 +69,7 @@ function HISHeader({ currentTime, simplifiedMode, heroContent }) {
           </div>
         )}
         <div className="his-time">{currentTime}</div>
-        <div className="his-location">CDG HUB - FRANCE</div>
+        <div className="his-location">CDG HUB</div>
         {!simplifiedMode && (
           <button className="his-icon-btn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
