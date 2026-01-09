@@ -37,18 +37,12 @@ function HISDashboard() {
       <HISHeader 
         currentTime={formatTime(currentTime)} 
         simplifiedMode={simplifiedMode}
-        heroContent={simplifiedMode ? heroContent : null}
+        heroContent={heroContent}
       />
       
       <main className="his-main-content">
         {!simplifiedMode && (
           <div className="his-hero-section">
-            <div className="his-section-label">HUB INFORMATION SYSTEM DASHBOARD</div>
-            <h1 className="his-main-title">Hub Information System</h1>
-            <p className="his-description">
-              A real-time operational view of SPSS and EBSS sort activities, delivering actionable insights on physical positions, split performance, and processing efficiency at the CDG Hub
-            </p>
-            
             <KPICards />
           </div>
         )}
