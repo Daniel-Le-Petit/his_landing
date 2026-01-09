@@ -32,7 +32,7 @@ npm run preview
 
 ## Features
 
-- Real-time hub dashboard
+- Hub Information System Dashboard
 - KPI monitoring (Total Transit, Processed Pieces, Sort Delays, Active Chutes)
 - Operational Sub-Apps:
   - HIS for SPSS
